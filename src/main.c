@@ -169,7 +169,7 @@ void deplacer_vaisseau(void) {
 
 void enemies(void) {
 
-	for (depbot = 2; depbot <= 40; depbot +=2) {
+	for (depbot = 2; depbot <= 40; depbot +=3) {
 
 		t_alien[depbot].x = depbot;
 		vt100_move(t_alien[depbot].x, 3);

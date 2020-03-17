@@ -2673,7 +2673,7 @@ void enemies(void) {
  8001034:	b580      	push	{r7, lr}
  8001036:	af00      	add	r7, sp, #0
 
-	for (depbot = 2; depbot <= 40; depbot +=2) {
+	for (depbot = 2; depbot <= 40; depbot +=3) {
  8001038:	4b12      	ldr	r3, [pc, #72]	; (8001084 <enemies+0x50>)
  800103a:	2202      	movs	r2, #2
  800103c:	701a      	strb	r2, [r3, #0]
@@ -2699,10 +2699,10 @@ void enemies(void) {
 		serial_puts(bot);
  8001064:	4809      	ldr	r0, [pc, #36]	; (800108c <enemies+0x58>)
  8001066:	f000 f921 	bl	80012ac <serial_puts>
-	for (depbot = 2; depbot <= 40; depbot +=2) {
+	for (depbot = 2; depbot <= 40; depbot +=3) {
  800106a:	4b06      	ldr	r3, [pc, #24]	; (8001084 <enemies+0x50>)
  800106c:	781b      	ldrb	r3, [r3, #0]
- 800106e:	3302      	adds	r3, #2
+ 800106e:	3303      	adds	r3, #3
  8001070:	b2da      	uxtb	r2, r3
  8001072:	4b04      	ldr	r3, [pc, #16]	; (8001084 <enemies+0x50>)
  8001074:	701a      	strb	r2, [r3, #0]
