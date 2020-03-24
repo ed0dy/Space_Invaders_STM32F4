@@ -23,24 +23,25 @@ uint8_t ym = 22;
 
 //Alien
 
+#define NBR_ALIEN (10)
 const char alien1[] = "Y";
 typedef struct {
 
 	uint8_t x;
 	uint8_t y;
 	uint8_t points;
-	uint8_t toucher;
+	uint8_t touche;
 
 } alien;
 
-alien t_alien[20] = { 0 };  //Initialise les valeurs de tous les enemies à 0
+alien t_alien[NBR_ALIEN] = { 0 }; //Initialise les valeurs de tous les enemies à 0
 uint8_t pas_deplacement_alien = 0;  //
 
 //Vaisseau
 
 const char ship[] = "^";
-uint8_t xv = 35;   //Initialise la position du vaisseau en X et Y
-uint8_t yv = 22;
+uint8_t xv = 5;   //Initialise la position du vaisseau en X et Y
+uint8_t yv = 22;   //Par defaut x=35 et y=22
 
 //Variables de jeu
 
@@ -170,13 +171,11 @@ void contour_jeu(void) {
 
 	vt100_move(4, 23);
 	serial_puts("SCORE : ");
-	vt100_move(12, 23);
-	serial_puts("0");
 
 	vt100_move(70, 23);
 	serial_puts("VIES : ");
 	vt100_move(77, 23);
-	serial_puts("1");
+	serial_puts("3");
 
 }
 
@@ -210,16 +209,16 @@ void init_enemies(void) {
 	uint8_t yb = 3;
 	uint8_t ibot = 0;
 
-	for (ibot = 0; ibot <= 19; ibot++) {
+	for (ibot = 0; ibot <= NBR_ALIEN - 1; ibot++) {
 
 		t_alien[ibot].x = xb;
 		t_alien[ibot].y = yb;
-		//vt100_move(t_alien[ibot].x, t_alien[ibot].y);
-		//serial_puts(alien1);
+		vt100_move(t_alien[ibot].x, t_alien[ibot].y);
+		serial_puts(alien1);
+		t_alien[ibot].y = yb + 1;
+		vt100_move(t_alien[ibot].x, t_alien[ibot].y);
+		serial_puts(alien1);
 		xb += 1;
-		//vt100_move(t_alien[xb].x, t_alien[yb].y);
-		//vt100_move(t_alien[xb].x, yb + 1);
-		//serial_puts(alien1);
 
 	}
 }
@@ -229,9 +228,9 @@ void enemies(void) {
 	pas_deplacement_alien++;
 	uint8_t ibot = 0;
 
-	if (t_alien[20].x <= LONG_FENETRE - 3) {
+	if (t_alien[NBR_ALIEN].x <= LONG_FENETRE - 3) {
 
-		for (ibot = 0; ibot <= 19; ibot++) {
+		for (ibot = 0; ibot <= NBR_ALIEN - 1; ibot++) {
 
 			vt100_move(t_alien[ibot].x, 3);
 			serial_puts(" ");
@@ -275,6 +274,27 @@ void tir(void) {
 	}
 }
 
+void collision(void) {
+	uint8_t ibot = 0;
+
+	for (ibot = 0; ibot <= NBR_ALIEN - 1; ibot++) {
+
+		if (xm == t_alien[ibot].x && ym == t_alien[ibot].y) {
+
+			vt100_move(t_alien[ibot].x, t_alien[ibot].y);
+			serial_putchar(' ');
+			t_alien[ibot].touche = 1;
+
+			vt100_move(12, 23);
+			serial_puts("100");
+			//serial_putchar(score / 10);
+			//serial_putchar(score % 10);
+
+		}
+	}
+
+}
+
 int main(void) {
 	serial_init(115200);
 	vt100_clear_screen();
@@ -282,13 +302,14 @@ int main(void) {
 	menu_principal();
 	lancer_jeu();
 	vt100_clear_screen();
+	init_enemies();
 	contour_jeu();
 
 	while (1) {
 		deplacer_vaisseau();
-		init_enemies();
-		enemies();
+		//enemies();
 		tir();
+		collision();
 
 	}
 }
