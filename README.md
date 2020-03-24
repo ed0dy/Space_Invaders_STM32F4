@@ -10,7 +10,7 @@ https://github.com/ed0dy/Space_Invaders_STM32F4
 
 2. Ouvrez le projet avec Atolic True Studio
 
-3. Lancez le debug pour transerer le programme sur la STM32F4 Discovery
+3. Lancez le debug pour transférer le programme sur la STM32F4 Discovery
 
 4. Stoppez le debug
 
@@ -30,7 +30,7 @@ Comme indiqué sur la fenetre : appuyez sur Espace pour jouer, Q pour aller à g
 
 ## Le stockage de toutes les données de enemies
 
-Je ne voyais pas comment stocker la position en X et Y de chaque enemies. En commençant le projet je ne connaissais pas les structures et c'est grâce à ça que j'ai pu regler mon problème.
+Je ne voyais pas comment stocker la position en X et Y de chaque enemies. En commençant le projet je ne connaissais pas les structures et c'est grâce à ça que j'ai pu régler mon problème.
 
 ## Le déplacement des enemies
 
@@ -38,7 +38,7 @@ Je n'ai pas réussi à finaliser cette partie. Je pense qu'il ne manque pas gran
 
 ## Le tir du vaisseau
 
-Ma fonction de tire fonctionne mais on n'est obligé d'appuyer sur escpace à chaque fois et le missile s'incrémente
+Ma fonction de tire fonctionne mais on n'est obligé d'appuyer sur escpace à chaque fois pour que le missile s'incrémente
 
 # Les notions apprises et peaufinées
 
@@ -56,5 +56,4 @@ Ma fonction de tire fonctionne mais on n'est obligé d'appuyer sur escpace à ch
 
 # Retour d'experience
 
-Je suis globalemet trés satisfait de ce projet qui m'a permis de découvrir et d'approfondir plein de notions du language C. Je ne suis pas forcément très bon en programmation et je préfère plus le coté électronique mais j'avoue que ce projet m'a permis de m'intéresser beaucoup plus à la programmation et pour cela je remercie beaucoup M.POULAILLEAU Vincent pour toutes ces explications et le temps qu'il à passé avec nous.
-
+Je suis globalemet trés satisfait de ce projet qui m'a permis de découvrir et d'approfondir plein de notions du language C. Je ne suis pas forcément très bon en programmation et je préfère plus le côté électronique mais j'avoue que ce projet m'a permis de m'intéresser beaucoup plus à la programmation et pour cela je remercie beaucoup M.POULAILLEAU Vincent pour toutes ces explications et le temps qu'il à passé avec nous.
