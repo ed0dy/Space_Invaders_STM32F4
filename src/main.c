@@ -92,6 +92,8 @@ void menu_principal(void) {
 	serial_puts("APPUYER SUR 'ESPACE' POUR JOUER");
 	vt100_move(29, 17);
 	serial_puts("GAUCHE : Q | D : DROITE");
+	vt100_move(31, 19);
+	serial_puts("'ESPACE' POUR TIRER");
 	vt100_move(60, 22);
 	serial_puts("Jean-Pascal BARRON");
 }
@@ -224,7 +226,6 @@ void init_enemies(void) {
 }
 
 void enemies(void) {
-
 	pas_deplacement_alien++;
 	uint8_t ibot = 0;
 
